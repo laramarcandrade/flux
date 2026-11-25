@@ -1,4 +1,5 @@
 # flux
+
 1. O PROBLEMA
 --------------------------------------------------------------------------------
 Na organização de eventos, controlar as vendas de mesas e ingressos por anotações soltas, 
@@ -14,6 +15,7 @@ portaria, valida o código de cada ingresso e libera a entrada uma única vez.
 
 Nesta versão, o programa funciona no terminal, em um único computador por vez, sem acesso 
 simultâneo em rede.
+
 
 2. ARQUIVOS DO PROJETO
 --------------------------------------------------------------------------------
