@@ -79,7 +79,7 @@ def realizar_venda(vendas, tipo_evento, nome_evento, arquivo):
             nome = comprador
         titulares.append(nome)
 
-    ok, mensagem = registrar_venda(vendas, numero, comprador, empresa, titulares)
+    ok, mensagem = registrar_venda(vendas, numero, comprador, empresa, titulares, tipo=tipo_evento)
     print(texto_do_modo(mensagem, tipo_evento))
     if ok:
         salvar_vendas(vendas, arquivo)

@@ -21,11 +21,11 @@ def buscar_ingresso(vendas, codigo):
                     ingresso_cancelado = ingresso
     return ingresso_cancelado
 
-def gerar_codigo(numero_pedido, posicao):
-    return f"M{numero_pedido}-{posicao:02d}"
+def gerar_codigo(tipo, identificador, indice):
+    prefixo = "M" if tipo.upper() == "MESA" else "I"
+    return f"{prefixo}{identificador}-{indice:02d}"
 
-
-def registrar_venda(vendas, numero_pedido, comprador, empresa, titulares):
+def registrar_venda(vendas, numero_pedido, comprador, empresa, titulares, tipo="MESA"):
     if numero_pedido <= 0:
         return False, "Número do pedido inválido."
     if not pedido_disponivel(vendas, numero_pedido):
@@ -45,7 +45,7 @@ def registrar_venda(vendas, numero_pedido, comprador, empresa, titulares):
     for nome in titulares:
         ingressos.append({
             "titular": nome.strip(),
-            "codigo": gerar_codigo(numero_pedido, posicao),
+            "codigo": gerar_codigo(tipo, numero_pedido, posicao), # <-- AQUI! Adicione "tipo," antes de numero_pedido
             "status": "nao_utilizado",
         })
         posicao += 1
